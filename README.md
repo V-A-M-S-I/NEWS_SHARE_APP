@@ -1,1 +1,0 @@
-# NEWS_SHARE_APP

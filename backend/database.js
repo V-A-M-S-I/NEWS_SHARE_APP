@@ -51,7 +51,7 @@ app.use(cors({
 // Define an endpoint to handle creation of news items with image upload
 app.post('/news', upload.single('Image'), async (req, res) => {
   try {
-    const { Title,Date,Published, selectedValue, Description, Link } = req.body;
+    const { Title,Date, Published, selectedValue, Description, Link } = req.body;
     const imagePath = req.file.filename; // Path to uploaded image
     const newNews = new News({ image: imagePath, date: Date, published: Published,  title: Title, department: selectedValue, description: Description, link: Link });
     await newNews.save();
