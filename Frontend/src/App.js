@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NewsForm from './components/NewsForm';
+import NewsForm from './components/newsForm';
 import News from './components/news';
-
+import NewsDetails from './components/newsdetails';
 import './App.css';
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<NewsForm />} />
           <Route path="/news" element={<News />} />
+          <Route path="/newsdetails" element={<NewsDetails />} /> 
         </Routes>
       </BrowserRouter>
     </>

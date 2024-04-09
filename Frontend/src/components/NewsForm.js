@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios'; 
 import '../Styles/form.css'; // Import your CSS file
 
+
 export default function NewsForm() {
     const [formData, setFormData] = useState({
         Image:'',
