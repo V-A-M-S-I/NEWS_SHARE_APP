@@ -1,3 +1,8 @@
+body{
+  background:black;
+  color:white;
+}
+
 h1{
     text-align: center;
 }
@@ -5,9 +10,13 @@ h1{
     max-width: 700px;
     margin: 0 auto;
     padding: 20px;
-    border: 3px solid blue;
+    border: 3px solid red;
     border-radius: 7px;
     margin-bottom: 17px;
+    font-size:medium;
+    font-weight: bold;
+    font-variant: small-caps;
+    box-shadow:0px 0px  25px #FAEBD7;
   }
   
   .one {
@@ -27,6 +36,9 @@ h1{
     border-radius: 7px;
     box-sizing: border-box;
     margin-top: 7px;
+    background:black;
+    color:white;
+    font-size:1rem;
   }
   
   button {
@@ -41,7 +53,7 @@ h1{
   }
   
   button:hover {
-    background-color: black;
+    background-color: blue;
     color:white
   }
   
@@ -52,5 +64,10 @@ h1{
     box-sizing: border-box;
     margin-top: 7px;
     resize: none;
-    padding:70px
+    height: 125px;
+    background:black;
+    color:white;
+    font-size:1rem;
   }
+
+ 

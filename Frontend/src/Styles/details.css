@@ -1,7 +1,12 @@
+
+
 .details-container {
     max-width: 700px;
     margin: 0 auto;
     padding: 20px;
+    box-shadow:0px 0px  25px #FAEBD7;
+    font-size:1.2rem;
+    border-radius:30px
   }
   
   .details-container p {
@@ -10,7 +15,7 @@
   
   .details-container img {
     width: 100%;
-    height: 250px;
+    height: 350px;
     object-fit: contain;
   }
   
@@ -32,6 +37,7 @@
     display: inline-block;
     margin-top: 20px;
     text-decoration: none;
+    color:yellow
   }
   
   .details-container a:hover {

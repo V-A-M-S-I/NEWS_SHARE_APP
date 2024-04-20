@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios'; 
-import '../Styles/form.css'; // Import your CSS file
+import '../Styles/form.css'; 
 
 
-export default function NewsForm() {
+export default function AdminForm() {
     const [formData, setFormData] = useState({
         Image:'',
         Date:'',
@@ -53,7 +53,7 @@ export default function NewsForm() {
         <>
         <div className='form'>
             <div>
-                    <h1>USER NEWS FORM</h1>
+                    <h1>NEWS</h1>
             </div>
             <form onSubmit={handleSubmit} className="news-form">
                 
@@ -95,7 +95,7 @@ export default function NewsForm() {
                     <label>Registration Link:</label>
                     <input type="text" name='Link' value={formData.Link} onChange={handleChange} />
                 </div>
-                <button type="submit">Send Admin</button>
+                <button type="submit">ADD</button>
             </form>
 
         </div>

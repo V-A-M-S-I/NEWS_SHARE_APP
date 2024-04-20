@@ -31,6 +31,15 @@ export default function Adminhome() {
         navigate('/newsdetails', { state: { newsItem: selectedNews } });
     };
 
+    // Function to handle delete
+    const handleDelete = async (index) => {
+        try {
+            await axios.delete(`http://localhost:8080/Admin/${index}`);
+            setNews((prevNews) => prevNews.filter((_, i) => i !== index));
+        } catch (error) {
+            console.error('Error deleting news:', error);
+        }
+    };
 
     return (
         <>
@@ -42,8 +51,10 @@ export default function Adminhome() {
                             <div key={ind} className="news-card">
                                 <img src={`http://localhost:8080/public/images/${val.image}`} alt='img' />
                                 <h2>{val.title}</h2>
+                                
                                 <div className="button-container"> 
                                     <button onClick={() => goToNewsDetails(val)}>Read</button>
+                                    <button onClick={() => handleDelete(ind)}>Delete</button>
                                 </div>
                             </div>
                         ))

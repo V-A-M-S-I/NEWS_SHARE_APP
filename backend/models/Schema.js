@@ -28,6 +28,11 @@ const newsSchema = new mongoose.Schema({
     link: {
         type : String,
         required : true
+    },
+    status: {
+        type : Boolean,
+        required : true,
+        default : false
     }
 });
 
