@@ -1,7 +1,12 @@
-import React from 'react'
+import React,{useState} from 'react'
 import '../Styles/header.css'
 import Newsimg from '../images/news.png'; 
-export default function Userheader() {
+export default function Userheader({setSearchQuery}) {
+
+    const handleSearch = (e) => {
+        setSearchQuery(e.target.value);
+    };
+
   return (
     <>
         <nav class="navbar">
@@ -17,7 +22,7 @@ export default function Userheader() {
             </div>
             <div class="search-bar">
                 <div class="search-container">
-                    <input type="text" placeholder="Search" />
+                <input type="text" placeholder="Search" onChange={handleSearch} />
                 </div>
             </div>
             <div class="icons">

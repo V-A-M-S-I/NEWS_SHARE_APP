@@ -3,7 +3,7 @@ import {  useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../Styles/news.css';
 
-export default function Adminhome() {
+export default function Adminhome({searchQuery}) {
     // Define state for news items
     const [news, setNews] = useState([]);
 
@@ -30,7 +30,10 @@ export default function Adminhome() {
     const goToNewsDetails = (selectedNews) => {
         navigate('/newsdetails', { state: { newsItem: selectedNews } });
     };
-
+     
+    const filteredNews = news.filter(newsItem => {
+        return newsItem.title.toLowerCase().includes(searchQuery.toLowerCase());
+    });
 
     return (
         <>
@@ -38,7 +41,7 @@ export default function Adminhome() {
                 <h1> NEWS</h1>
                 <div className="news-container">
                     {news.length > 0 ? (
-                        news.map((val, ind) => (
+                        filteredNews.map((val, ind) => (
                             <div key={ind} className="news-card">
                                 <img src={`http://localhost:8080/public/images/${val.image}`} alt='img' />
                                 <h2>{val.title}</h2>
