@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import '../Styles/login.css'
+import '../Styles/userlogin.css'
 import img from '../images/News-handing.gif';
+import vel from '../images/Veltech.png';
 
-export default function Userlogin() {
+export default function Userlogin({setIsLoggedIn}) {
     const navigate = useNavigate(); 
     
     const [loginData, setLoginData] = useState({
@@ -22,8 +23,8 @@ export default function Userlogin() {
         e.preventDefault();
         try {
             const response = await axios.post("http://localhost:8080/login", loginData);
-            
-            navigate('/');
+            setIsLoggedIn(true);
+            navigate('/news');
         } catch (error) {
             setError("Invalid credentials. Please try again.");
         }
@@ -32,11 +33,15 @@ export default function Userlogin() {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <div className='container'>
+                <div className='box1'>
+                    <div>
+                    <img src={vel} className='vel' alt="img" /> 
+                    </div>
                     <img src={img} className='login' alt="img" />
+                    <h1>USER</h1>
                     <div className='id'>
                         <label>VTU-NO</label>
-                        <input type="text" name='id' value={loginData.text} onChange={handleChange} />
+                        <input type="text" name='id' className='txt' value={loginData.text} onChange={handleChange} />
                     </div>
                     <div className='pass'>
                         <label>PASSWORD</label>

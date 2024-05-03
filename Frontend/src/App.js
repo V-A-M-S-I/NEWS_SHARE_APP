@@ -7,24 +7,24 @@ import Userheader  from "./components/userheader";
 import AdminForm from "./components/AdminForm";
 import AdminNews from "./components/AdminNews";
 import Adminhome from "./components/Adminhome";
-import Userlogin from "./components/Userlogin";
-import AdminLogin from "./components/AdminLogin";
+import Logins from "./components/logins";
 import './App.css';
 
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedDepartment, setSelectedDepartment] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <>
       
       <BrowserRouter>
-      <Userheader setSearchQuery={setSearchQuery}/>
+      {isLoggedIn && <Userheader setSearchQuery={setSearchQuery} setSelectedDepartment={setSelectedDepartment}/>}
         <Routes>
           <Route path="/newsform" element={<NewsForm />} />
-          <Route path="/" element={< News searchQuery={searchQuery} />} />
-          <Route path="/userlogin" element={<Userlogin />} />
-          <Route path="/adminlogin" element={<AdminLogin />} />
-          <Route path="/adminhome" element={<Adminhome />} />
+          <Route path="/news" element={< News searchQuery={searchQuery}  selectedDepartment={selectedDepartment} />} />
+          <Route path="/" element={<Logins  setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/adminhome" element={<Adminhome selectedDepartment={selectedDepartment} searchQuery={searchQuery} />} />
           <Route path="/newsdetails" element={<NewsDetails />} /> 
           <Route path="/adminform" element={<AdminForm />} />
           <Route path="/adminnews" element={<AdminNews />} />
